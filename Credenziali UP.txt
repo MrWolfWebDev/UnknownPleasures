@@ -1,0 +1,15 @@
+Login: 4701622@aruba.it
+Password: xw5pfo1vy8
+
+
+IMPOSTAZIONI HOSTING LINUX
+Di seguito le impostazioni corrette per l'utilizzo del servizio :
+Indirizzo completo sito web : http://www.unknownpleasuressound.com
+Indirizzo server FTP (per la gestione del sito) : ftp.unknownpleasuressound.com
+Cartella iniziale remota FTP : www.unknownpleasuressound.com
+Guide alla pubblicazione tramite FTP : http://kb.aruba.it/KB/c74/01-ftp.aspx
+
+
+http://mysql.aruba.it
+Nome Utente: Sql695819
+Password: 22eq2fs81u
