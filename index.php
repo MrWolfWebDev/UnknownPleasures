@@ -62,17 +62,17 @@ and open the template in the editor.
                 <div class="navigation">
                     <div class="menu_link" onclick="ajaxFunction( 'news' );">
                         <div id="news_status" class="menu_selected"></div>
-                        <div class="menu_link_text">news</div>
+                        <div class="menu_link_text news"></div>
                     </div>
                     <div class="menu_divide"></div>
                     <div class="menu_link" onclick="ajaxFunction( 'catalogo' );">
                         <div id="catalogo_status" class="menu_unselected"></div>
-                        <div class="menu_link_text" >catalogo</div>
+                        <div class="menu_link_text cat" ></div>
                     </div>
                     <div class="menu_divide"></div>
                     <div class="menu_link" onclick="ajaxFunction( 'chisiamo' );">
                         <div id="chisiamo_status" class="menu_unselected"></div>
-                        <div class="menu_link_text" >chi siamo</div>
+                        <div class="menu_link_text chi" ></div>
                     </div>
                 </div>
                 <div class="menu_line"></div>

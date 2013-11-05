@@ -33,26 +33,51 @@ a {
 
 div.navigation {
     display: inline-table;
+    margin-top: 15px;
 }
 
 div.menu_line {
     display: inline-block;
     bottom: 0px;
-    height: 17px;
+    height: 27px;
     border-top-style: solid;
     border-top-color: #333;
-    border-width: 2px;
+    border-width: 1px;
     z-index: -1;
-    width: 20%;
+    width: 31%;
 }
 
+.news{
+    background-image: url("images/menu/home.png");
+}
+
+.news:hover{
+    background-image: url("images/menu/home-on.png");
+}
+
+.cat{
+    background-image: url("images/menu/cat.png");
+}
+
+.cat:hover{
+    background-image: url("images/menu/cat-on.png");
+}
+
+.chi{
+    background-image: url("images/menu/chi.png");
+}
+
+.chi:hover{
+    background-image: url("images/menu/chi-on.png");
+}
 div.menu_divide {
     display: inline-block;
-    height: 17px;
+    height: 42px;
     border-top-style: solid;
     border-top-color: #333;
     border-width: 2px;
     width: 40px;
+    border-width: 1px;
 }
 
 div.menu_link {
@@ -69,6 +94,8 @@ div.menu_selected {
     width: 150px;
     height: 20px;
     background-image: url('images/selected_link.png');
+    margin-bottom: 12px;
+    border-width: 1px;
 }
 
 div.menu_unselected {
@@ -76,11 +103,12 @@ div.menu_unselected {
     height: 20px;
     border-bottom-style: solid;
     border-color: #333;
-    border-width: 2px;
+    margin-bottom: 12px;
+    border-width: 1px;
 }
 
 div.menu_link_text {
-    height: 20px;
+    height: 30px;
     vertical-align: bottom;
     text-align: center;
 }
@@ -146,7 +174,7 @@ div.horiz_bar{
     width: 100%;
     border-bottom-style: solid;
     border-color: #333;
-    border-width: 2px;
+    border-width: 1px;
     margin: 5px auto 5px auto;
 
 }
