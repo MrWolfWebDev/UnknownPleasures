@@ -110,8 +110,10 @@ class TableNews extends Database {
     protected $insertQuery = "INSERT INTO `news` (`Data`, `Titolo`, `Testo`, `Foto`, `DataIns`) VALUES (:data, :titolo, :testo, :foto, :dataIns)";
     protected $updateQuery = "UPDATE news SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
     protected $deleteQuery = "DELETE FROM `news` where `ID` = :iD";
-    protected $adminQuery = "SELECT `ID` FROM `admin` WHERE `User`=:user AND `Password`=SHA1(:pass)";
-    
+    protected $adminQuery  = "SELECT `ID` FROM `admin` WHERE `User`=:user AND `Password`=SHA1(:pass)";
+    protected $titleQuery  = "SELECT `Titolo`,`ID`,`DataIns` from news";
+
+
     // Used class
     protected $class = "News";
     // Table fields
@@ -122,6 +124,13 @@ class TableNews extends Database {
         "Foto",
         "DataIns"
     );
+    
+     public function Title() {
+        $this->query( $this->titleQuery );
+        $this->execute();
+
+        return $this->stmt;
+    }
     
     // Fetch an array of News objects (defined in news.class.php)
     public function fetchAll() {

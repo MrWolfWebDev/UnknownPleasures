@@ -94,7 +94,7 @@ div.menu_selected {
     width: 150px;
     height: 20px;
     background-image: url('images/selected_link.png');
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     border-width: 1px;
 }
 
