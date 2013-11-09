@@ -183,7 +183,8 @@ class TableNews extends Database {
         }
     }
 
-    public function delete( $ID ) {
+    public function delete( $ID1 ) {
+        $ID = intval($ID1);
         if ( is_int( $ID ) ) {
             $this->query( $this->deleteQuery );
 
