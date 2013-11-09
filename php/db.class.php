@@ -184,23 +184,9 @@ class TableNews extends Database {
     }
 
     public function delete( $ID1 ) {
-        $ID = intval($ID1);
-        if ( is_int( $ID ) ) {
-            $this->query( $this->deleteQuery );
-
-            $this->bind( ':iD', $ID );
-            try {
-                $this->execute();
-                return true;
-            }
-            catch ( PDOException $e ) {
-                $this->error = $e->getMessage();
-                return $this->error;
-            }
-        }
-
-        if ( is_array( $ID ) ) {
-            foreach ( $ID as $id ) {
+        if ( is_array( $ID1 ) ) {
+            foreach ( $ID1 as $id1 ) {
+                $id = intval($id1);
                 $this->query( $this->deleteQuery );
 
                 $this->bind( ':iD', $id );
@@ -214,6 +200,21 @@ class TableNews extends Database {
                 }
             }
         }
+        else {
+            $ID = intval($ID1);
+            $this->query( $this->deleteQuery );
+
+            $this->bind( ':iD', $ID );
+            try {
+                $this->execute();
+                return true;
+            }
+            catch ( PDOException $e ) {
+                $this->error = $e->getMessage();
+                return $this->error;
+            }
+        }
+
     }
 
     
