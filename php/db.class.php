@@ -149,7 +149,7 @@ class TableNews extends Database {
     }
     
     public function fetchByID( $ID1 ) {
-        $ID = intval($ID1)
+        $ID = intval($ID1);
         $this->query( $this->selectByIDQuery );
 
         $this->bind( ':iD', $ID );
