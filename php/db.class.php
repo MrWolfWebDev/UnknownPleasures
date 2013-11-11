@@ -160,7 +160,8 @@ class TableNews extends Database {
         catch ( PDOException $e ) {
             $this->error = $e->getMessage();
         }
-        return $this->stmt->fetch( PDO::FETCH_CLASS, $this->class );
+        $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+        return $results[0];
     }
 
     public function insert( $obj ) {
