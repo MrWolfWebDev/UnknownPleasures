@@ -26,10 +26,10 @@ if ($_SESSION['auth'] == 1):
                         <?php
                         $newsDB = new TableNews();
 
-                        $result1 = $newsDB->Title();
-
+                        $result1 = $newsDB->fetchAll();
+                 
                         foreach ($result1 as $news) {
-                            echo '<input type="checkbox"  name="news[]" value="',$news[1],'"/> <b>',$news[0],"</b> del <b>",$news[2],"</b>";
+                            echo '<input type="checkbox"  name="news[]" value="',$news->ID,'"/> <b>',$news->Titolo,"</b> del <b>",$news->DataIns,"</b>";
                             echo '<br/>';
                         }
                         ?>
@@ -43,11 +43,14 @@ if ($_SESSION['auth'] == 1):
             if (isset($_POST['Delete'])) {
                               
                 $deadlist=$_POST['news'];
-               
-                foreach ($deadlist as $id)
+                
+                foreach ($deadlist as $kill)
                 {
-                   $newsDB->delete($id);
+                    
+                    $newsDB->delete($kill);
                 }
+                
+   
                 
             }
             
