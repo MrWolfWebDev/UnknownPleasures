@@ -107,6 +107,7 @@ class TableNews extends Database {
      * CRUD Methods
      */
     protected $selectQuery = "SELECT * FROM news";
+    protected $selectByIDQuery = "SELECT * FROM news WHERE `ID` = :iD";
     protected $insertQuery = "INSERT INTO `news` (`Data`, `Titolo`, `Testo`, `Foto`, `DataIns`) VALUES (:data, :titolo, :testo, :foto, :dataIns)";
     protected $updateQuery = "UPDATE news SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
     protected $deleteQuery = "DELETE FROM `news` where `ID` = :iD";
@@ -145,6 +146,20 @@ class TableNews extends Database {
         }
 
         return $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+    }
+    
+    public function fetchByID( $ID ) {
+        $this->query( $this->selectByIDQuery );
+
+        $this->bind( ':iD', $ID );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+        return $this->stmt->fetch( PDO::FETCH_CLASS, $this->class );
     }
 
     public function insert( $obj ) {
