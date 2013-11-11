@@ -148,7 +148,8 @@ class TableNews extends Database {
         return $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
     }
     
-    public function fetchByID( $ID ) {
+    public function fetchByID( $ID1 ) {
+        $ID = intval($ID1)
         $this->query( $this->selectByIDQuery );
 
         $this->bind( ':iD', $ID );
