@@ -46,12 +46,13 @@ if ($_SESSION['auth'] == 1):
                 
                 foreach ($deadlist as $kill)
                 {
-                    
+                    $path=$newsDB->fetchByID($kill);
+                    unlink($path->Foto);                 
                     $newsDB->delete($kill);
                 }
                 
    
-                
+               header("Location:index.php");
             }
             
             ?>
