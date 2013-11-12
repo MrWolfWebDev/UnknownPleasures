@@ -280,3 +280,191 @@ class TableNews extends Database {
     }
 
 }
+
+class TableSong extends Database {
+
+    /**
+     *
+     * CRUD Methods
+     */
+    protected $selectQuery = "SELECT * FROM brani";
+    protected $selectByIDQuery = "SELECT * FROM brani WHERE `ID` = :iD";
+    protected $insertQuery = "INSERT INTO `brani` (`Titolo`, `Artista`, `Album`, `Genere`, `Anno`, `ITunes`, `Pdf`, `DataIns`) VALUES (:titolo, :artista, :album, :genere, :anno, :iTunes, :pdf, :data)";
+    protected $updateQuery = "UPDATE data SET DataIns = :data, Titolo = :titolo, Artista = :artista, Album = :album, Genere = :dataIns, Anno = :anno, Itunes = :iTunes, Pdf =:pdf WHERE ID = :iD";
+    protected $deleteQuery = "DELETE FROM `brani` where `ID` = :iD";
+    protected $adminQuery  = "SELECT `ID` FROM `admin` WHERE `User`=:user AND `Password`=SHA1(:pass)";
+
+
+    // Used class
+    protected $class = "Brani";
+    // Table fields
+    protected $fields = array(
+        "Titolo", 
+        "Artista", 
+        "Album", 
+        "Genere",
+        "Anno", 
+        "ITunes", 
+        "Pdf", 
+        "DataIns"
+    );
+    
+    // Fetch an array of News objects (defined in news.class.php)
+    public function fetchAll() {
+        $this->query( $this->selectQuery );
+        $this->execute();
+
+        return $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+    }
+
+    public function fetchSome( $num = 1 ) {
+        $this->query( $this->selectQuery . "LIMIT 0, $num" );
+
+        $this->bind( ':num', $num );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+
+        return $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+    }
+    
+    public function fetchByID( $ID1 ) {
+        $ID = intval($ID1);
+        $this->query( $this->selectByIDQuery );
+
+        $this->bind( ':iD', $ID );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+        $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+        return $results[0];
+    }
+
+    public function insert( $obj ) {
+        $this->query( $this->insertQuery );
+
+        if ( is_array( $obj ) ) {
+            $this->bindArray( $obj );
+            $this->bind( ':dataIns', date( "Y-m-d" ) );
+        }
+        elseif ( is_object( $obj ) ) {
+            if ( get_class( $obj ) == $this->class ) {
+                $this->bindObject( $obj );
+                $this->bind( ':dataIns', date( "Y-m-d" ) );
+            }
+        }
+        else {
+            echo "Invalid parameters (must be array or $this->class type)";
+        }
+
+
+        try {
+            $this->execute();
+            return true;
+        }
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+            return $this->error;
+        }
+    }
+
+    public function delete( $ID1 ) {
+        if ( is_array( $ID1 ) ) {
+            foreach ( $ID1 as $id1 ) {
+                $id = intval($id1);
+                $this->query( $this->deleteQuery );
+
+                $this->bind( ':iD', $id );
+                try {
+                    $this->execute();
+                    return true;
+                }
+                catch ( PDOException $e ) {
+                    $this->error = $e->getMessage();
+                    return $this->error;
+                }
+            }
+        }
+        else {
+            $ID = intval($ID1);
+            $this->query( $this->deleteQuery );
+
+            $this->bind( ':iD', $ID );
+            try {
+                $this->execute();
+                return true;
+            }
+            catch ( PDOException $e ) {
+                $this->error = $e->getMessage();
+                return $this->error;
+            }
+        }
+
+    }
+
+    
+     //
+    public function admin($user,$pass){
+        $this->query( $this->adminQuery );
+        
+        $this->bind( ':user', $user );
+        $this->bind( ':pass', $pass );
+              
+        try {
+            $this->execute();
+            $count= $this->rowCount();
+        }
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+            return $this->error;
+        }
+        
+        return $count;
+    }
+    
+    public function update( $obj, $ID ) {
+        $this->query( $this->updateQuery );
+        
+        $this->bind( ':iD', $ID );
+        $this->bind( ':titolo', $obj->Titolo );
+        $this->bind( ':artista', $obj->Artista );
+        $this->bind( ':album', $obj->Album );
+        $this->bind( ':genere', $obj->Genere );
+        $this->bind( ':anno', $obj->Anno );
+        $this->bind( ':iTunes', $obj->ITunes );
+        $this->bind( ':pdf', $obj->Pdf );
+        $this->bind( ':data', $obj->Data );
+        $this->bind( ':data', date( "Y-m-d" ) );
+        try {
+            $this->execute();
+            return true;
+        }
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+            return $this->error;
+        }
+    }
+
+    // Utilities
+
+    public function bindArray( $obj ) {
+        foreach ( $this->fields as $field ) {
+            $this->bind( ':' . lcfirst( $field ), $obj[$field] );
+        }
+    }
+
+    public function bindObject( $obj ) {
+        foreach ( $this->fields as $field ) {
+            $this->bind( ':' . lcfirst( $field ), $obj->$field );
+        }
+    }
+
+}
