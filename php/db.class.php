@@ -108,6 +108,7 @@ class TableNews extends Database {
      */
     protected $selectQuery = "SELECT * FROM news";
     protected $selectByIDQuery = "SELECT * FROM news WHERE `ID` = :iD";
+    protected $countQuery = "SELECT COUNT(*) FROM news";
     protected $insertQuery = "INSERT INTO `news` (`Data`, `Titolo`, `Testo`, `Foto`, `DataIns`) VALUES (:data, :titolo, :testo, :foto, :dataIns)";
     protected $updateQuery = "UPDATE news SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
     protected $deleteQuery = "DELETE FROM `news` where `ID` = :iD";
@@ -151,6 +152,19 @@ class TableNews extends Database {
         $this->query( $this->selectByIDQuery );
 
         $this->bind( ':iD', $ID );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+        $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+        return $results[0];
+    }
+
+    public function fetchCount() {
+        $this->query( $this->countQuery );
         try {
             $this->execute();
         }
@@ -242,6 +256,13 @@ class TableNews extends Database {
         return $count;
     }
 
+    /**
+     * Update method.
+     *
+     * @param type $obj     Must be a $this->class object
+     * @param type $ID      Must be int
+     * @return boolean      Returns true if the query was successful, false otherwise
+     */
     public function update( $obj, $ID ) {
         $this->query( $this->updateQuery );
 
@@ -277,6 +298,9 @@ class TableNews extends Database {
 
 }
 
+/**
+ * TableSong class
+ */
 class TableSong extends TableNews {
 
     /**
