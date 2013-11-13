@@ -108,6 +108,7 @@ class TableNews extends Database {
      */
     protected $selectQuery = "SELECT * FROM news";
     protected $selectByIDQuery = "SELECT * FROM news WHERE `ID` = :iD";
+    protected $countQuery = "SELECT COUNT(*) FROM news";
     protected $insertQuery = "INSERT INTO `news` (`Data`, `Titolo`, `Testo`, `Foto`, `DataIns`) VALUES (:data, :titolo, :testo, :foto, :dataIns)";
     protected $updateQuery = "UPDATE news SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
     protected $deleteQuery = "DELETE FROM `news` where `ID` = :iD";
@@ -161,6 +162,20 @@ class TableNews extends Database {
         $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
         return $results[0];
     }
+    
+    public function fetchCount() {
+        $this->query( $this->countQuery );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+        $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+        return $results[0];
+    }
+
 
     public function insert( $obj ) {
         $this->query( $this->insertQuery );
