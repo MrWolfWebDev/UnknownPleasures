@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/UnknownPleasures/admin/login.php</file>
+            <file>file:/C:/xampp/htdocs/UnknownPleasures/admin/delnews.php</file>
+            <file>file:/C:/xampp/htdocs/UnknownPleasures/admin/addbrano.php</file>
+            <file>file:/C:/xampp/htdocs/UnknownPleasures/admin/modnews.php</file>
+            <file>file:/C:/xampp/htdocs/UnknownPleasures/php/dbconnection.php</file>
+            <file>file:/C:/xampp/htdocs/UnknownPleasures/php/db.class.php</file>
+            <file>file:/C:/xampp/htdocs/UnknownPleasures/php/news.class.php</file>
+            <file>file:/C:/xampp/htdocs/UnknownPleasures/admin/addnews.php</file>
         </group>
     </open-files>
 </project-private>

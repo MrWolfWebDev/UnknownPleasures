@@ -19,18 +19,23 @@
                     session_start();
                     if (count($_POST)) {
 
-                        //Dati accesso db
-                        include('../php/db_account.php');
-                        //effettuo l'inserimento sul database
-                        include('../php/db_connect.php');
+
+                        include('../php/dbconnection.php');
+                        include('../php/db.class.php');
+
+                        $DB = new TableNews();
+
                         if (!empty($_POST['user']) && !empty($_POST['pass'])) {
                             $user = filter_var($_POST['user'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                             $pass = filter_var($_POST['pass'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                            $sql = "SELECT `IdUser` FROM `admins` WHERE `User`='$user' AND `Password`=SHA1('$pass')";
-                            mysql_query($sql);
+                            $sql = "SELECT `ID` FROM `admin` WHERE `User`='$user' AND `Password`=SHA1('$pass')";
 
-                            if (mysql_affected_rows() > 0) {
+                            $count = $DB->admin($user, $pass);
+
+                            
+                            
+                            if ($count > 0) {
                                 $_SESSION['auth'] = 1;
                                 $_SESSION['user'] = $user;
 

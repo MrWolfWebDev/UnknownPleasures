@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Unknown Pleasure</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script type="text/javascript">
