@@ -122,7 +122,7 @@ include '../php/db.class.php';
             /*
              * Prosegue dopo inserimento
              */
-            //header("Location:index.php");
+            header("Location:index.php");
 
         }
         ?>
