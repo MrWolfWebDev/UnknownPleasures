@@ -2,20 +2,21 @@
 
 class News {
 
-    public function fromArray($array) {
-        if (array_key_exists("ID", $array)) {
+    public function fromArray( $array ) {
+        if ( array_key_exists( "ID", $array ) ) {
             $this->ID = $array["ID"];
-        } else {
+        }
+        else {
             $this->ID = -1;
         }
-        foreach ($array as $key => $value) {
+        foreach ( $array as $key => $value ) {
             $this->$key = $value;
         }
     }
 
     public function toArray() {
 
-        $array = get_object_vars($this);
+        $array = get_object_vars( $this );
         /*
           $array = [
           "ID" => $this->IdNews,
@@ -32,11 +33,13 @@ class News {
 
     public function __toString() {
         $array = $this->toArray();
-        $string = implode(',', $array);
+        $string = implode( ',', $array );
 
         return $string;
     }
 
 }
 
-?>
+class Brani extends News {
+    
+}
