@@ -280,6 +280,7 @@ class TableNews extends Database {
 class TableSong extends TableNews {
 
     /**
+     *
      * CRUD Methods
      */
     protected $selectQuery = "SELECT * FROM brani";
