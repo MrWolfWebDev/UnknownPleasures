@@ -285,8 +285,8 @@ class TableSong extends TableNews {
      */
     protected $selectQuery = "SELECT * FROM brani";
     protected $selectByIDQuery = "SELECT * FROM brani WHERE `ID` = :iD";
-    protected $insertQuery = "INSERT INTO `brani` (`Titolo`, `Artista`, `Album`, `Genere`, `Anno`, `ITunes`, `Pdf`, `DataIns`) VALUES (:titolo, :artista, :album, :genere, :anno, :iTunes, :pdf, :data)";
-    protected $updateQuery = "UPDATE data SET DataIns = :data, Titolo = :titolo, Artista = :artista, Album = :album, Genere = :dataIns, Anno = :anno, Itunes = :iTunes, Pdf =:pdf WHERE ID = :iD";
+    protected $insertQuery = "INSERT INTO `brani` (`Titolo`, `Artista`, `Album`, `Genere`, `Anno`, `ITunes`, `Pdf`, `DataIns`) VALUES (:titolo, :artista, :album, :genere, :anno, :iTunes, :pdf, :dataIns)";
+    protected $updateQuery = "UPDATE data SET DataIns = :dataIns, Titolo = :titolo, Artista = :artista, Album = :album, Genere = :genere, Anno = :anno, Itunes = :iTunes, Pdf =:pdf WHERE ID = :iD";
     protected $deleteQuery = "DELETE FROM `brani` where `ID` = :iD";
     protected $adminQuery = "SELECT `ID` FROM `admin` WHERE `User`=:user AND `Password`=SHA1(:pass)";
     // Used class
@@ -302,5 +302,27 @@ class TableSong extends TableNews {
         "Pdf",
         "DataIns"
     );
+
+    public function update( $obj, $ID ) {
+        $this->query( $this->updateQuery );
+
+        $this->bind( ':iD', $ID );
+        $this->bind( ':titolo', $obj->Titolo );
+        $this->bind( ':artista', $obj->Artista );
+        $this->bind( ':album', $obj->Album );
+        $this->bind( ':genere', $obj->Genere );
+        $this->bind( ':anno', $obj->Anno );
+        $this->bind( ':iTunes', $obj->iTunes );
+        $this->bind( ':pdf', $obj->Pdf );
+        $this->bind( ':dataIns', date( "Y-m-d" ) );
+        try {
+            $this->execute();
+            return true;
+        }
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+            return $this->error;
+        }
+    }
 
 }
