@@ -1,3 +1,12 @@
+<?php
+include 'php/dbconnection.php';
+include 'php/db.class.php';
+
+$newsDB = new TableNews();
+
+$last = $newsDB->fetchCount();
+?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -37,7 +46,6 @@ and open the template in the editor.
                     thisfield.value = defaulttext;
                 }
             }
-            
             function firstArticle() {
 
             }
@@ -54,12 +62,12 @@ and open the template in the editor.
                 var ajaxRequest = new XMLHttpRequest();
                 ajaxRequest.onreadystatechange = function()
                 {
-                    if (ajaxRequest.readyState === 4 && xmlhttp.status === 200)
+                    if (ajaxRequest.readyState === 4 && ajaxRequest.status === 200)
                     {
-                        document.getElementById("#content1").innerHTML = ajaxRequest.responseText;
+                        document.getElementById("content").innerHTML = ajaxRequest.responseText;
                     }
                 };
-                ajaxRequest.open("GET", "news.php?rec=<?php echo $last; ?>", true);
+                ajaxRequest.open("GET", "news.php?rec=<?php echo $last; ?>");
                 ajaxRequest.send();
             }
         </script>
