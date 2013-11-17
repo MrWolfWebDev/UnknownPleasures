@@ -13,8 +13,7 @@ $newsDB = new TableNews();
 $last = $newsDB->fetchCount();
 
 if (!isset($_GET['rec'])) {
-
-   $news = 0;
+    $news = 0;
 } else {
     $news = $_GET['rec'];
 }
@@ -25,34 +24,6 @@ if (!isset($_GET['rec'])) {
     </head>
     <body>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-        <script type="text/javascript">
-
-            function firstArticle() {
-
-            }
-
-            function previousArticle() {
-
-            }
-
-            function nextArticle() {
-
-            }
-
-            function lastArticle() {
-                var ajaxRequest = new XMLHttpRequest();
-                ajaxRequest.onreadystatechange = function()
-                {
-                    if (ajaxRequest.readyState === 4 && xmlhttp.status === 200)
-                    {
-                        document.getElementById("#content1").innerHTML = ajaxRequest.responseText;
-                    }
-                };
-                ajaxRequest.open("GET", "news.php?rec=<?php echo $last; ?>", true);
-                ajaxRequest.send();
-            }
-
-        </script>
         <div class="scroll_box">
             <div class="article_title" id="content1">Titolo</div>
             <div class="article_content">
