@@ -103,7 +103,7 @@ include '../php/db.class.php';
              /*
              * Creo array per inserimento
              */
-            $array = [
+            $array = array(
                 "Titolo"  => $Titolo,
                 "Artista" => $Artista,
                 "Album"   => $Album,
@@ -112,7 +112,7 @@ include '../php/db.class.php';
                 "ITunes"  => $ITunes,
                 "Pdf"     => $nuovo_nome,
                 "DataIns" => date("Y-m-d"),
-            ];
+            );
 
             /*
              * Metodo per inserimento in db

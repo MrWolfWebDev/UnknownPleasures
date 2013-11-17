@@ -81,13 +81,13 @@ include '../php/db.class.php';
             /*
              * Creo array per inserimento
              */
-            $array = [
+            $array = array(
                 "Data" => "2013-11-1",
                 "Titolo" => $Titolo,
                 "Testo" => $Testo,
                 "Foto" => $nuovo_nome,
                 "DataIns" => date("Y-m-d"),
-            ];
+            );
 
             /*
              * Metodo per inserimento in db

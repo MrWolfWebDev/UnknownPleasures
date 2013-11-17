@@ -31,9 +31,7 @@
 
                             $sql = "SELECT `ID` FROM `admin` WHERE `User`='$user' AND `Password`=SHA1('$pass')";
 
-                            $count = $DB->admin($user, $pass);
-
-                            
+                            $count = $DB->admin($user, $pass);                            
                             
                             if ($count > 0) {
                                 $_SESSION['auth'] = 1;

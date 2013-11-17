@@ -5,13 +5,18 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+include 'php/dbconnection.php';
+include 'php/db.class.php';
+
+$newsDB = new TableNews();
+
+$last = $newsDB->fetchCount();
+
 if (!isset($_GET['rec'])) {
 
-    $news = 0;
-}
-else
-{
-    $news=$_GET['rec'];
+   $news = 0;
+} else {
+    $news = $_GET['rec'];
 }
 ?>
 <html>
@@ -19,8 +24,37 @@ else
         <meta charset="UTF-8">
     </head>
     <body>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            function firstArticle() {
+
+            }
+
+            function previousArticle() {
+
+            }
+
+            function nextArticle() {
+
+            }
+
+            function lastArticle() {
+                var ajaxRequest = new XMLHttpRequest();
+                ajaxRequest.onreadystatechange = function()
+                {
+                    if (ajaxRequest.readyState === 4 && xmlhttp.status === 200)
+                    {
+                        document.getElementById("#content1").innerHTML = ajaxRequest.responseText;
+                    }
+                };
+                ajaxRequest.open("GET", "news.php?rec=<?php echo $last; ?>", true);
+                ajaxRequest.send();
+            }
+
+        </script>
         <div class="scroll_box">
-            <div class="article_title">Titolo</div>
+            <div class="article_title" id="content1">Titolo</div>
             <div class="article_content">
                 <div class="article_date">01.01.2013</div>
                 <div class="article_image_box"><img class="article_image" src="images/prova_articolo.jpg" /></div>
@@ -60,7 +94,7 @@ else
                     </div>
                     <div class="news_navigation_cell">
                         <div id="article_counter">
-                            <span>1 / 1</span>
+                            <span>1 / <?php echo $last; ?></span>
                         </div>
                     </div>
                     <div class="news_navigation_cell">

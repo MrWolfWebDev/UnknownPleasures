@@ -132,13 +132,13 @@ if ($_SESSION['auth'] == 1):
                             /*
                              * Creo array per inserimento
                              */
-                            $array = [
+                            $array = array(
                                 "Data" => "2013-11-1",
                                 "Titolo" => $Titolo,
                                 "Testo" => $Testo,
                                 "Foto" => $nuovo_nome,
                                 "DataIns" => date("Y-m-d"),
-                            ];
+                            );
 
                             $obj = new News();
                             $obj->fromArray($array);
@@ -155,13 +155,13 @@ if ($_SESSION['auth'] == 1):
 
                             $nuovo_nome = $candidat->Foto;
 
-                            $array = [
+                            $array = array(
                                 "Data" => "2013-11-1",
                                 "Titolo" => $Titolo,
                                 "Testo" => $Testo,
                                 "Foto" => $nuovo_nome,
                                 "DataIns" => date("Y-m-d"),
-                            ];
+                            );
                             $obj = new News();
                             $obj->fromArray($array);
                             $newsDB->update($obj, $candidat);
