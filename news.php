@@ -13,15 +13,14 @@ $newsDB = new TableNews();
 $last = $newsDB->fetchCount();
 
 
-var_dump($last);
-
 if (!isset($_GET['rec'])) {
     $news = 1;
 } else {
     $news = $_GET['rec'];
 }
 
-$notizia= $newsDB->fetchByID($news);
+$notizia= $newsDB->fetchByRow($news);
+
 ?>
 <html>
     <head>
@@ -30,14 +29,14 @@ $notizia= $newsDB->fetchByID($news);
     <body>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <div class="scroll_box">
-            <div class="article_title"><?php echo $notizia->Titolo ?></div>
+            <div class="article_title"><?php echo $notizia->Titolo; ?></div>
             <div class="article_content">
-                <div class="article_date"><?php echo $notizia->DataIns ?></div>
-                <div class="article_image_box"><img class="article_image" src="<?php echo $notizia->Foto ?>" /></div>
+                <div class="article_date"><?php echo $notizia->DataIns; ?></div>
+                <div class="article_image_box"><img class="article_image" src="<?php echo substr($notizia->Foto,3); ?>" /></div>
                 <div class="horiz_bar"></div>
                 <div class="article_text">
                     <p>
-                     <?php echo $notizia->Testo ?>
+                     <?php echo $notizia->Testo; ?>
                     </p>
                 </div>
                 <div class="social_networks_links">
@@ -54,10 +53,18 @@ $notizia= $newsDB->fetchByID($news);
                 </div>
                 <div id="news_navigation">
                     <div class="news_navigation_cell">
-                        <img class="news_navigation_link" src="images/links/arrow_left_end.png" onclick="gotoArticle(1);"/>
+                         <?php
+                        if($news!=1){
+                        echo '<img class="news_navigation_link" src="images/links/arrow_left_end.png" onclick="gotoArticle(1);"/>';
+                        }
+                        ?>
                     </div>
                     <div class="news_navigation_cell">
-                        <img class="news_navigation_link" src="images/links/arrow_left.png" onclick="gotoArticle(<?php echo $news-1; ?>);"/>
+                         <?php
+                        if($news!=1){
+                        echo '<img class="news_navigation_link" src="images/links/arrow_left.png" onclick="gotoArticle(',$news-1,');"/>';
+                        }
+                        ?>
                     </div>
                     <div class="news_navigation_cell">
                         <div id="article_counter">
@@ -66,16 +73,16 @@ $notizia= $newsDB->fetchByID($news);
                     </div>
                     <div class="news_navigation_cell">
                         <?php
-                        //if($news!=$last){
-                        echo '<img class="news_navigation_link" src="images/links/arrow_right.png" onclick="gotoArticle(<?php echo $news+1; ?>);" />';
-                        //}
+                        if($news!=$last){
+                        echo '<img class="news_navigation_link" src="images/links/arrow_right.png" onclick="gotoArticle(',$news+1,');" />';
+                        }
                         ?>                    
                     </div>
                     <div class="news_navigation_cell">
                         <?php
-                        //if($news!=$last){
-                        echo '<img class="news_navigation_link" src="images/links/arrow_right_end.png" onclick="gotoArticle(<?php echo $last; ?>)" />';
-                        //}
+                        if($news!=$last){
+                        echo '<img class="news_navigation_link" src="images/links/arrow_right_end.png" onclick="gotoArticle(',$last,')" />';
+                        }
                         ?>  
                     </div>
                 </div>
