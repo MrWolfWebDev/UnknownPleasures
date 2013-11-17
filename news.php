@@ -19,7 +19,7 @@ if (!isset($_GET['rec'])) {
     $news = $_GET['rec'];
 }
 
-$notizia= $newsDB->fetchByRow($news);
+$notizia= $newsDB->fetchByRow($news-1);
 
 ?>
 <html>
