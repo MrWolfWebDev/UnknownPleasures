@@ -37,6 +37,31 @@ and open the template in the editor.
                     thisfield.value = defaulttext;
                 }
             }
+            
+            function firstArticle() {
+
+            }
+
+            function previousArticle() {
+
+            }
+
+            function nextArticle() {
+
+            }
+
+            function lastArticle() {
+                var ajaxRequest = new XMLHttpRequest();
+                ajaxRequest.onreadystatechange = function()
+                {
+                    if (ajaxRequest.readyState === 4 && xmlhttp.status === 200)
+                    {
+                        document.getElementById("#content1").innerHTML = ajaxRequest.responseText;
+                    }
+                };
+                ajaxRequest.open("GET", "news.php?rec=<?php echo $last; ?>", true);
+                ajaxRequest.send();
+            }
         </script>
     </head>
     <body onLoad="ajaxFunction('news');">
