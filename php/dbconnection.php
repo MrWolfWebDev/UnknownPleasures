@@ -1,8 +1,9 @@
 <?php
 
-define("DB_HOST", "62.149.150.198");
-define("DB_USER", "Sql695819");
-define("DB_PASS", "22eq2fs81u");
-define("DB_NAME", "Sql695819_1");
+define( "DB_HOST", "localhost" );
+define( "DB_USER", "UP" );
+define( "DB_PASS", "UP" );
+define( "DB_NAME", "up" );
 
-define("DB_TYPE", "mysql");
+define( "DB_TYPE", "mysql" );
+
