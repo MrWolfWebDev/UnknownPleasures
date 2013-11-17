@@ -58,7 +58,7 @@ and open the template in the editor.
 
             }
 
-            function lastArticle() {
+            function gotoArticle(rec) {
                 var ajaxRequest = new XMLHttpRequest();
                 ajaxRequest.onreadystatechange = function()
                 {
@@ -67,7 +67,7 @@ and open the template in the editor.
                         document.getElementById("content").innerHTML = ajaxRequest.responseText;
                     }
                 };
-                ajaxRequest.open("GET", "news.php?rec=<?php echo $last; ?>");
+                ajaxRequest.open("GET", "news.php?rec="+rec);
                 ajaxRequest.send();
             }
         </script>
