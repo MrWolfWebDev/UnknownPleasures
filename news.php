@@ -72,7 +72,11 @@ $notizia= $newsDB->fetchByID($news);
                         ?>                    
                     </div>
                     <div class="news_navigation_cell">
-                        <img class="news_navigation_link" src="images/links/arrow_right_end.png" onclick="gotoArticle(<?php echo $last; ?>)" />
+                        <?php
+                        //if($news!=$last){
+                        echo '<img class="news_navigation_link" src="images/links/arrow_right_end.png" onclick="gotoArticle(<?php echo $last; ?>)" />';
+                        //}
+                        ?>  
                     </div>
                 </div>
             </div>
