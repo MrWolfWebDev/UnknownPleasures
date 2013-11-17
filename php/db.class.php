@@ -175,6 +175,20 @@ class TableNews extends Database {
         $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
         return $results[0];
     }
+    
+    public function fetchCount() {
+        $this->query( $this->countQuery );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+        $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+        return $results[0];
+    }
+
 
     public function insert( $obj ) {
         $this->query( $this->insertQuery );

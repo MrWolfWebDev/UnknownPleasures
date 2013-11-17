@@ -4,6 +4,16 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+if (!isset($_GET['rec'])) {
+
+    $news = 0;
+}
+else
+{
+    $news=$_GET['rec'];
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -28,9 +38,6 @@ and open the template in the editor.
                     <p>
                         Proin nonummy, lacus eget pulvinar lacinia, pede felis dignissim leo, vitae tristique magna lacus sit amet eros. Nullam ornare. Praesent odio ligula, dapibus sed, tincidunt eget, dictum ac, nibh. Nam quis lacus. Nunc eleifend molestie velit. Morbi lobortis quam eu velit. Donec euismod vestibulum massa. Donec non lectus. Aliquam commodo lacus sit amet nulla. Cras dignissim elit et augue. Nullam non diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Aenean vestibulum. Sed lobortis elit quis lectus. Nunc sed lacus at augue bibendum dapibus.
                     </p>
-                </div>
-                <div class="article_full_link">
-                    <a href="">leggi tutto</a>
                 </div>
                 <div class="social_networks_links">
                     <a href="https://facebook.com" target="_blank">
