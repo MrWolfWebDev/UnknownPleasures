@@ -59,6 +59,19 @@ and open the template in the editor.
                 ajaxRequest.open( "GET", "news.php?rec=" + rec );
                 ajaxRequest.send();
             }
+            
+            function Search( src ) {
+                var ajaxRequest = new XMLHttpRequest();
+                ajaxRequest.onreadystatechange = function()
+                {
+                    if ( ajaxRequest.readyState === 4 && ajaxRequest.status === 200 )
+                    {
+                        document.getElementById( "catalogo_text" ).innerHTML = ajaxRequest.responseText;
+                    }
+                };
+                ajaxRequest.open( "GET", "catalogo.php?src=" + src );
+                ajaxRequest.send();
+            }
         </script>
     </head>
     <body onLoad="ajaxFunction( 'news' );">

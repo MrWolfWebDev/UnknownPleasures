@@ -332,7 +332,7 @@ class TableSong extends TableNews {
      *
      * CRUD Methods
      */
-    protected $selectQuery = "SELECT * FROM brani";
+    protected $selectQuery = "SELECT * FROM brani ORDER BY `Titolo`";
     protected $selectByIDQuery = "SELECT * FROM brani WHERE `ID` = :iD";
     protected $selectBySearchQuery = "SELECT * FROM  `brani` WHERE  `Titolo` LIKE  '%:titolo%' OR  `Artista` LIKE  '%:artista%' OR  `Album` LIKE  '%:album%' OR  `Genere` LIKE  '%:genere%' OR  `Anno` LIKE  '%:anno%'";
     protected $insertQuery = "INSERT INTO `brani` (`Titolo`, `Artista`, `Album`, `Genere`, `Anno`, `ITunes`, `Pdf`, `DataIns`) VALUES (:titolo, :artista, :album, :genere, :anno, :iTunes, :pdf, :dataIns)";
