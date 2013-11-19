@@ -334,7 +334,7 @@ class TableSong extends TableNews {
      */
     protected $selectQuery = "SELECT * FROM brani ORDER BY `Titolo`";
     protected $selectByIDQuery = "SELECT * FROM brani WHERE `ID` = :iD";
-    protected $selectBySearchQuery = "SELECT * FROM  `brani` WHERE  `Titolo` LIKE  '%:titolo%' OR  `Artista` LIKE  '%:artista%' OR  `Album` LIKE  '%:album%' OR  `Genere` LIKE  '%:genere%' OR  `Anno` LIKE  '%:anno%'";
+    protected $selectBySearchQuery = "SELECT * FROM  `brani` WHERE  `Titolo` LIKE  ':titolo' OR  `Artista` LIKE  ':artista' OR  `Album` LIKE  ':album' OR  `Genere` LIKE  ':genere' OR  `Anno` LIKE  ':anno'";
     protected $insertQuery = "INSERT INTO `brani` (`Titolo`, `Artista`, `Album`, `Genere`, `Anno`, `ITunes`, `Pdf`, `DataIns`) VALUES (:titolo, :artista, :album, :genere, :anno, :iTunes, :pdf, :dataIns)";
     protected $updateQuery = "UPDATE data SET DataIns = :dataIns, Titolo = :titolo, Artista = :artista, Album = :album, Genere = :genere, Anno = :anno, Itunes = :iTunes, Pdf =:pdf WHERE ID = :iD";
     protected $deleteQuery = "DELETE FROM `brani` where `ID` = :iD";
@@ -389,11 +389,11 @@ class TableSong extends TableNews {
     public function fetchBySearch( $search ) {
         $this->query( $this->selectBySearchQuery );
 
-        $this->bind( ':titolo', $search );
-        $this->bind( ':artista', $search );
-        $this->bind( ':album', $search );
-        $this->bind( ':genere', $search );
-        $this->bind( ':anno', $search );
+        $this->bind( ':titolo', "%$search%" );
+        $this->bind( ':artista', "%$search%" );
+        $this->bind( ':album', "%$search%" );
+        $this->bind( ':genere', "%$search%" );
+        $this->bind( ':anno', "%$search%" );
         try {
             $this->execute();
         }
