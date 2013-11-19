@@ -384,7 +384,7 @@ class TableSong extends TableNews {
     /**
      * Uses search parameter to look for records with corresponding strings.
      * @param string $search
-     * @return array<Brani>
+     * @return array<$this->class>
      */
     public function fetchBySearch( $search ) {
         $this->query( $this->selectBySearchQuery );
