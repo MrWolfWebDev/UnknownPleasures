@@ -4,7 +4,6 @@ include 'php/db.class.php';
 
 $songDB = new TableSong();
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,12 +14,12 @@ $songDB = new TableSong();
             <div class="logo"><img src="images/finder_logo.png" /></div>
             <form name="search_tracks" action="query.php" enctype="text/plain">
                 <div class="search_zone">
-                    <input id="lens" type="image" src="images/lens.png" name="submit" alt="Cerca"><input id="search_text" onclick="clickclear( this, 'cerca..' );" onblur="clickrecall( this, 'cerca..' );" type="text" value="cerca.." onkeypress="Search();">
+                    <input id="lens" type="image" src="images/lens.png" name="submit" alt="Cerca"><input id="search_text" onclick="clickclear(this, 'cerca..');" onblur="clickrecall(this, 'cerca..');" onkeypress="Search();" type="text" value="cerca..">
                 </div>
             </form>
             <div class="horiz_bar"></div>
             <div class="catalogo_text" id="catalogo_text">
-                <?php
+                  <?php
                 $result = $songDB->fetchAll();
 
                 foreach ( $result as $song ) {
