@@ -46,17 +46,6 @@ and open the template in the editor.
                     thisfield.value = defaulttext;
                 }
             }
-            function firstArticle() {
-
-            }
-
-            function previousArticle() {
-
-            }
-
-            function nextArticle() {
-
-            }
 
             function gotoArticle(rec) {
                 var ajaxRequest = new XMLHttpRequest();
