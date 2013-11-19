@@ -5,7 +5,7 @@ include 'db.class.php';
 
 $songDB = new TableSong();
 
-if (!isset($_GET['src'])) {
+if (!isset($_GET['src']) or $_GET['src']==" ") {
     $result = $songDB->fetchAll();
 
     foreach ($result as $song) {

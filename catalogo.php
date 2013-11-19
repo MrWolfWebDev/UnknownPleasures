@@ -14,7 +14,7 @@ $songDB = new TableSong();
             <div class="logo"><img src="images/finder_logo.png" /></div>
             <form name="search_tracks" action="query.php" enctype="text/plain">
                 <div class="search_zone">
-                    <input id="lens" type="image" src="images/lens.png" name="submit" alt="Cerca"><input id="search_text" onclick="clickclear(this, 'cerca..');" onblur="clickrecall(this, 'cerca..');" onkeypress="Search();" type="text" value="cerca..">
+                    <input id="lens" type="image" src="images/lens.png" name="submit" alt="Cerca"><input id="search_text" onclick="clickclear(this, 'cerca..');" onblur="clickrecall(this, 'cerca..');" onkeyup="Search();" type="text" value="cerca..">
                 </div>
             </form>
             <div class="horiz_bar"></div>
