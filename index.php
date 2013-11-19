@@ -60,7 +60,7 @@ and open the template in the editor.
                 ajaxRequest.send();
             }
             
-            function Search( src ) {
+            function Search() {
                 var ajaxRequest = new XMLHttpRequest();
                 ajaxRequest.onreadystatechange = function()
                 {
@@ -69,7 +69,8 @@ and open the template in the editor.
                         document.getElementById( "catalogo_text" ).innerHTML = ajaxRequest.responseText;
                     }
                 };
-                ajaxRequest.open( "GET", "catalogo.php?src=" + src );
+                var src = document.getElementById( "search_text" ).value;
+                ajaxRequest.open( "GET", "php/searchfiller.php?src=" + src );
                 ajaxRequest.send();
             }
         </script>
