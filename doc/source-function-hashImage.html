@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File admin/addbrano.php | UnknownPleasures</title>
+
+	<script type="text/javascript" src="resources/combined.js?2968601004"></script>
+	<script type="text/javascript" src="elementlist.js?2456806751"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+		</div>
+
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Brani.html">Brani</a></li>
+				<li><a href="class-Database.html">Database</a></li>
+				<li><a href="class-News.html">News</a></li>
+				<li><a href="class-TableNews.html">TableNews</a></li>
+				<li><a href="class-TableSong.html">TableSong</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li class="active"><a href="function-hashImage.html" class="invalid">hashImage</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="function-hashImage.html" title="Summary of hashImage"><span>Function</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1">  1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2">  2: </a><span class="php-keyword2">session_start</span>();
+</span><span id="3" class="l"><a class="l" href="#3">  3: </a><span class="php-keyword1">if</span> (<span class="php-var">$_SESSION</span>[<span class="php-quote">'auth'</span>] == <span class="php-num">1</span>):
+</span><span id="4" class="l"><a class="l" href="#4">  4: </a>
+</span><span id="5" class="l"><a class="l" href="#5">  5: </a>
+</span><span id="6" class="l"><a class="l" href="#6">  6: </a><span class="php-keyword1">include</span> <span class="php-quote">'../php/dbconnection.php'</span>;
+</span><span id="7" class="l"><a class="l" href="#7">  7: </a><span class="php-keyword1">include</span> <span class="php-quote">'../php/db.class.php'</span>;
+</span><span id="8" class="l"><a class="l" href="#8">  8: </a><span class="xlang">?&gt;</span>
+</span><span id="9" class="l"><a class="l" href="#9">  9: </a>&lt;!DOCTYPE html <span class="php-keyword1">PUBLIC</span> <span class="php-quote">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span> <span class="php-quote">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span>&gt;
+</span><span id="10" class="l"><a class="l" href="#10"> 10: </a>&lt;html xmlns=<span class="php-quote">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;
+</span><span id="11" class="l"><a class="l" href="#11"> 11: </a>    &lt;head&gt;
+</span><span id="12" class="l"><a class="l" href="#12"> 12: </a>        &lt;meta http-equiv=<span class="php-quote">&quot;Content-Type&quot;</span> content=<span class="php-quote">&quot;text/html; charset=utf-8&quot;</span> /&gt;
+</span><span id="13" class="l"><a class="l" href="#13"> 13: </a>        &lt;title&gt;Aggiungi Un Brano&lt;/title&gt;
+</span><span id="14" class="l"><a class="l" href="#14"> 14: </a>        &lt;<span class="php-keyword2">link</span> href=<span class="php-quote">&quot;bootstrap/css/bootstrap.css&quot;</span> rel=<span class="php-quote">&quot;stylesheet&quot;</span>/&gt;
+</span><span id="15" class="l"><a class="l" href="#15"> 15: </a>        &lt;<span class="php-keyword2">link</span> href=<span class="php-quote">&quot;bootstrap/css/bootstrap-responsive.css&quot;</span> rel=<span class="php-quote">&quot;stylesheet&quot;</span> /&gt;
+</span><span id="16" class="l"><a class="l" href="#16"> 16: </a>        &lt;<span class="php-keyword2">link</span> href=<span class="php-quote">&quot;css/adminstyle.css&quot;</span> rel=<span class="php-quote">&quot;stylesheet&quot;</span> /&gt;
+</span><span id="17" class="l"><a class="l" href="#17"> 17: </a>    &lt;/head&gt;
+</span><span id="18" class="l"><a class="l" href="#18"> 18: </a>
+</span><span id="19" class="l"><a class="l" href="#19"> 19: </a>    &lt;body&gt;
+</span><span id="20" class="l"><a class="l" href="#20"> 20: </a>        &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;container&quot;</span>&gt;
+</span><span id="21" class="l"><a class="l" href="#21"> 21: </a>            &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="22" class="l"><a class="l" href="#22"> 22: </a>                &lt;form <span class="php-keyword1">class</span>=<span class="php-quote">&quot;span10 offset1&quot;</span> enctype=<span class="php-quote">&quot;multipart/form-data&quot;</span> action=<span class="php-quote">&quot;addbrano.php&quot;</span> method=<span class="php-quote">&quot;post&quot;</span>&gt;
+</span><span id="23" class="l"><a class="l" href="#23"> 23: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;&lt;h3&gt;Inserisci un nuovo brano&lt;/h3&gt;&lt;/div&gt;
+</span><span id="24" class="l"><a class="l" href="#24"> 24: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;&lt;hr&gt;&lt;/hr&gt;&lt;/div&gt;
+</span><span id="25" class="l"><a class="l" href="#25"> 25: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="26" class="l"><a class="l" href="#26"> 26: </a>                        &lt;h4&gt;Titolo&lt;/h4&gt; &lt;input <span class="php-keyword1">class</span>=<span class="php-quote">&quot;span6&quot;</span> type=<span class="php-quote">&quot;text&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;input-block-level&quot;</span> name=<span class="php-quote">&quot;Titolo&quot;</span>/&gt;
+</span><span id="27" class="l"><a class="l" href="#27"> 27: </a>                    &lt;/div&gt;
+</span><span id="28" class="l"><a class="l" href="#28"> 28: </a>
+</span><span id="29" class="l"><a class="l" href="#29"> 29: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="30" class="l"><a class="l" href="#30"> 30: </a>                        &lt;h4&gt;Artista&lt;/h4&gt; &lt;input <span class="php-keyword1">class</span>=<span class="php-quote">&quot;span6&quot;</span> type=<span class="php-quote">&quot;text&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;input-block-level&quot;</span> name=<span class="php-quote">&quot;Artista&quot;</span>/&gt;
+</span><span id="31" class="l"><a class="l" href="#31"> 31: </a>                    &lt;/div&gt;
+</span><span id="32" class="l"><a class="l" href="#32"> 32: </a>
+</span><span id="33" class="l"><a class="l" href="#33"> 33: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="34" class="l"><a class="l" href="#34"> 34: </a>                        &lt;h4&gt;Album&lt;/h4&gt; &lt;input <span class="php-keyword1">class</span>=<span class="php-quote">&quot;span6&quot;</span> type=<span class="php-quote">&quot;text&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;input-block-level&quot;</span> name=<span class="php-quote">&quot;Album&quot;</span>/&gt; 
+</span><span id="35" class="l"><a class="l" href="#35"> 35: </a>                    &lt;/div&gt;
+</span><span id="36" class="l"><a class="l" href="#36"> 36: </a>                    
+</span><span id="37" class="l"><a class="l" href="#37"> 37: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="38" class="l"><a class="l" href="#38"> 38: </a>                        &lt;h4&gt;Genere&lt;/h4&gt; &lt;input <span class="php-keyword1">class</span>=<span class="php-quote">&quot;span6&quot;</span> type=<span class="php-quote">&quot;text&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;input-block-level&quot;</span> name=<span class="php-quote">&quot;Genere&quot;</span>/&gt; 
+</span><span id="39" class="l"><a class="l" href="#39"> 39: </a>                    &lt;/div&gt;
+</span><span id="40" class="l"><a class="l" href="#40"> 40: </a>                    
+</span><span id="41" class="l"><a class="l" href="#41"> 41: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="42" class="l"><a class="l" href="#42"> 42: </a>                        &lt;h4&gt;Anno&lt;/h4&gt; &lt;input <span class="php-keyword1">class</span>=<span class="php-quote">&quot;span2&quot;</span> type=<span class="php-quote">&quot;text&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;input-block-level&quot;</span> name=<span class="php-quote">&quot;Anno&quot;</span>/&gt; 
+</span><span id="43" class="l"><a class="l" href="#43"> 43: </a>                    &lt;/div&gt;
+</span><span id="44" class="l"><a class="l" href="#44"> 44: </a>                    
+</span><span id="45" class="l"><a class="l" href="#45"> 45: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="46" class="l"><a class="l" href="#46"> 46: </a>                        &lt;h4&gt;<span class="php-keyword2">Link</span> iTunes&lt;/h4&gt; &lt;input <span class="php-keyword1">class</span>=<span class="php-quote">&quot;span6&quot;</span> type=<span class="php-quote">&quot;text&quot;</span> <span class="php-keyword1">class</span>=<span class="php-quote">&quot;input-block-level&quot;</span> name=<span class="php-quote">&quot;ITunes&quot;</span>/&gt; 
+</span><span id="47" class="l"><a class="l" href="#47"> 47: </a>                    &lt;/div&gt;
+</span><span id="48" class="l"><a class="l" href="#48"> 48: </a>                    
+</span><span id="49" class="l"><a class="l" href="#49"> 49: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;
+</span><span id="50" class="l"><a class="l" href="#50"> 50: </a>                        &lt;h4&gt;Inserisci il PDF&lt;/h4&gt;&lt;input type=<span class="php-quote">&quot;file&quot;</span> name = <span class="php-quote">&quot;pdf&quot;</span>/&gt; 
+</span><span id="51" class="l"><a class="l" href="#51"> 51: </a>                    &lt;/div&gt;
+</span><span id="52" class="l"><a class="l" href="#52"> 52: </a>                    
+</span><span id="53" class="l"><a class="l" href="#53"> 53: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;&lt;hr&gt;&lt;/hr&gt;&lt;/div&gt;
+</span><span id="54" class="l"><a class="l" href="#54"> 54: </a>                    &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;row&quot;</span>&gt;&lt;input <span class="php-keyword1">class</span>=<span class="php-quote">&quot;btn btn-large btn-primary &quot;</span> type=<span class="php-quote">&quot;submit&quot;</span> value=<span class="php-quote">&quot;Inserisci&quot;</span> name=<span class="php-quote">&quot;Inserisci&quot;</span>/&gt;&lt;/div&gt;   
+</span><span id="55" class="l"><a class="l" href="#55"> 55: </a>                &lt;/form&gt;
+</span><span id="56" class="l"><a class="l" href="#56"> 56: </a>            &lt;/div&gt;
+</span><span id="57" class="l"><a class="l" href="#57"> 57: </a>        &lt;/div&gt;
+</span><span id="58" class="l"><a class="l" href="#58"> 58: </a>        <span class="xlang">&lt;?php</span>
+</span><span id="59" class="l"><a class="l" href="#59"> 59: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$_POST</span>[<span class="php-quote">'Inserisci'</span>])) {
+</span><span id="60" class="l"><a class="l" href="#60"> 60: </a>            
+</span><span id="61" class="l"><a class="l" href="#61"> 61: </a>            <span class="php-keyword1">echo</span> <span class="php-quote">'Inserimento'</span>;
+</span><span id="62" class="l"><a class="l" href="#62"> 62: </a>
+</span><span id="63" class="l"><a class="l" href="#63"> 63: </a>            <span class="php-var">$Titolo</span>  = <span class="php-keyword2">filter_var</span>(<span class="php-var">$_POST</span>[<span class="php-quote">'Titolo'</span>], FILTER_SANITIZE_STRING);
+</span><span id="64" class="l"><a class="l" href="#64"> 64: </a>            <span class="php-var">$Artista</span> = <span class="php-keyword2">filter_var</span>(<span class="php-var">$_POST</span>[<span class="php-quote">'Artista'</span>], FILTER_SANITIZE_STRING);
+</span><span id="65" class="l"><a class="l" href="#65"> 65: </a>            <span class="php-var">$Album</span>   = <span class="php-keyword2">filter_var</span>(<span class="php-var">$_POST</span>[<span class="php-quote">'Album'</span>], FILTER_SANITIZE_STRING);
+</span><span id="66" class="l"><a class="l" href="#66"> 66: </a>            <span class="php-var">$Genere</span>  = <span class="php-keyword2">filter_var</span>(<span class="php-var">$_POST</span>[<span class="php-quote">'Genere'</span>], FILTER_SANITIZE_STRING); 
+</span><span id="67" class="l"><a class="l" href="#67"> 67: </a>            <span class="php-var">$Anno</span>    = <span class="php-keyword2">filter_var</span>(<span class="php-var">$_POST</span>[<span class="php-quote">'Anno'</span>], FILTER_SANITIZE_STRING);
+</span><span id="68" class="l"><a class="l" href="#68"> 68: </a>            <span class="php-var">$ITunes</span>  = <span class="php-keyword2">filter_var</span>(<span class="php-var">$_POST</span>[<span class="php-quote">'ITunes'</span>], FILTER_SANITIZE_STRING);
+</span><span id="69" class="l"><a class="l" href="#69"> 69: </a>
+</span><span id="70" class="l"><a class="l" href="#70"> 70: </a>            <span class="php-var">$songDB</span> = <span class="php-keyword1">new</span> TableSong();
+</span><span id="71" class="l"><a class="l" href="#71"> 71: </a>            
+</span><span id="72" class="l"><a class="l" href="#72"> 72: </a>            <span class="php-comment">/*
+</span></span><span id="73" class="l"><a class="l" href="#73"> 73: </a><span class="php-comment">             * Uploda immagine
+</span></span><span id="74" class="l"><a class="l" href="#74"> 74: </a><span class="php-comment">             */</span>
+</span><span id="75" class="l"><a class="l" href="#75"> 75: </a>            <span class="php-var">$nome_pdf</span> = <span class="php-var">$_FILES</span>[<span class="php-quote">'pdf'</span>][<span class="php-quote">'tmp_name'</span>];
+</span><span id="76" class="l"><a class="l" href="#76"> 76: </a>            <span class="php-var">$pdf_info</span> = <span class="php-keyword2">getimagesize</span>(<span class="php-var">$_FILES</span>[<span class="php-quote">'pdf'</span>][<span class="php-quote">'tmp_name'</span>]);
+</span><span id="77" class="l"><a class="l" href="#77"> 77: </a>
+</span><span id="78" class="l"><a class="l" href="#78"> 78: </a>            <span class="php-comment">// Separate the extension</span>
+</span><span id="79" class="l"><a class="l" href="#79"> 79: </a>            <span class="php-var">$originalfile</span> = <span class="php-keyword2">substr</span>(<span class="php-var">$nome_pdf</span>, <span class="php-num">0</span>, <span class="php-keyword2">strripos</span>(<span class="php-var">$nome_pdf</span>, <span class="php-quote">'.'</span>));
+</span><span id="80" class="l"><a class="l" href="#80"> 80: </a>            <span class="php-var">$ext</span> = <span class="php-var">$pdf_info</span>[<span class="php-num">2</span>];
+</span><span id="81" class="l"><a class="l" href="#81"> 81: </a>
+</span><span id="82" class="l"><a class="l" href="#82"> 82: </a>            <span class="php-var">$inviato</span> = <span class="php-keyword2">file_exists</span>(<span class="php-var">$nome_pdf</span>);
+</span><span id="83" class="l"><a class="l" href="#83"> 83: </a>
+</span><span id="84" class="l"><a class="l" href="#84"> 84: </a>            <span class="php-keyword1">function</span> <a id="_hashImage" href="#_hashImage">hashImage</a>() {
+</span><span id="85" class="l"><a class="l" href="#85"> 85: </a>                <span class="php-var">$length</span> = <span class="php-num">5</span>;
+</span><span id="86" class="l"><a class="l" href="#86"> 86: </a>                <span class="php-var">$characters</span> = <span class="php-quote">'0123456789abcdefghijklmnopqrstuvwxyz'</span>;
+</span><span id="87" class="l"><a class="l" href="#87"> 87: </a>                <span class="php-keyword1">for</span> (<span class="php-var">$p</span> = <span class="php-num">0</span>; <span class="php-var">$p</span> &lt; <span class="php-var">$length</span>; <span class="php-var">$p</span>++) {
+</span><span id="88" class="l"><a class="l" href="#88"> 88: </a>                    <span class="php-var">$filename</span> .= <span class="php-var">$characters</span>[<span class="php-keyword2">mt_rand</span>(<span class="php-num">0</span>, <span class="php-keyword2">strlen</span>(<span class="php-var">$characters</span>))];
+</span><span id="89" class="l"><a class="l" href="#89"> 89: </a>                }
+</span><span id="90" class="l"><a class="l" href="#90"> 90: </a>                <span class="php-keyword1">return</span> <span class="php-var">$filename</span>;
+</span><span id="91" class="l"><a class="l" href="#91"> 91: </a>            }
+</span><span id="92" class="l"><a class="l" href="#92"> 92: </a>
+</span><span id="93" class="l"><a class="l" href="#93"> 93: </a>            <span class="php-var">$ID</span> = hashImage(<span class="php-var">$originalfile</span>) . <span class="php-var">$ext</span>;
+</span><span id="94" class="l"><a class="l" href="#94"> 94: </a>
+</span><span id="95" class="l"><a class="l" href="#95"> 95: </a>            <span class="php-var">$nuovo_nome</span> = <span class="php-quote">&quot;../pdf/&quot;</span> . <span class="php-var">$ID</span> . <span class="php-quote">&quot;.pdf&quot;</span>;
+</span><span id="96" class="l"><a class="l" href="#96"> 96: </a>
+</span><span id="97" class="l"><a class="l" href="#97"> 97: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$inviato</span>) {
+</span><span id="98" class="l"><a class="l" href="#98"> 98: </a>                <span class="php-comment">// sposto l'immagine nella cartella </span>
+</span><span id="99" class="l"><a class="l" href="#99"> 99: </a>                <span class="php-keyword2">move_uploaded_file</span>(<span class="php-var">$nome_pdf</span>, <span class="php-var">$nuovo_nome</span>);
+</span><span id="100" class="l"><a class="l" href="#100">100: </a>            } <span class="php-keyword1">else</span> {
+</span><span id="101" class="l"><a class="l" href="#101">101: </a>                <span class="php-keyword1">echo</span> <span class="php-quote">&quot;&lt;BR&gt; Errore&quot;</span>;
+</span><span id="102" class="l"><a class="l" href="#102">102: </a>            }
+</span><span id="103" class="l"><a class="l" href="#103">103: </a>             <span class="php-comment">/*
+</span></span><span id="104" class="l"><a class="l" href="#104">104: </a><span class="php-comment">             * Creo array per inserimento
+</span></span><span id="105" class="l"><a class="l" href="#105">105: </a><span class="php-comment">             */</span>
+</span><span id="106" class="l"><a class="l" href="#106">106: </a>            <span class="php-var">$array</span> = <span class="php-keyword1">array</span>(
+</span><span id="107" class="l"><a class="l" href="#107">107: </a>                <span class="php-quote">&quot;Titolo&quot;</span>  =&gt; <span class="php-var">$Titolo</span>,
+</span><span id="108" class="l"><a class="l" href="#108">108: </a>                <span class="php-quote">&quot;Artista&quot;</span> =&gt; <span class="php-var">$Artista</span>,
+</span><span id="109" class="l"><a class="l" href="#109">109: </a>                <span class="php-quote">&quot;Album&quot;</span>   =&gt; <span class="php-var">$Album</span>,
+</span><span id="110" class="l"><a class="l" href="#110">110: </a>                <span class="php-quote">&quot;Genere&quot;</span>  =&gt; <span class="php-var">$Genere</span>,
+</span><span id="111" class="l"><a class="l" href="#111">111: </a>                <span class="php-quote">&quot;Anno&quot;</span>    =&gt; <span class="php-var">$Anno</span>,
+</span><span id="112" class="l"><a class="l" href="#112">112: </a>                <span class="php-quote">&quot;ITunes&quot;</span>  =&gt; <span class="php-var">$ITunes</span>,
+</span><span id="113" class="l"><a class="l" href="#113">113: </a>                <span class="php-quote">&quot;Pdf&quot;</span>     =&gt; <span class="php-var">$nuovo_nome</span>,
+</span><span id="114" class="l"><a class="l" href="#114">114: </a>                <span class="php-quote">&quot;DataIns&quot;</span> =&gt; <span class="php-keyword2">date</span>(<span class="php-quote">&quot;Y-m-d&quot;</span>),
+</span><span id="115" class="l"><a class="l" href="#115">115: </a>            );
+</span><span id="116" class="l"><a class="l" href="#116">116: </a>
+</span><span id="117" class="l"><a class="l" href="#117">117: </a>            <span class="php-comment">/*
+</span></span><span id="118" class="l"><a class="l" href="#118">118: </a><span class="php-comment">             * Metodo per inserimento in db
+</span></span><span id="119" class="l"><a class="l" href="#119">119: </a><span class="php-comment">             */</span>
+</span><span id="120" class="l"><a class="l" href="#120">120: </a>            <span class="php-var">$songDB</span>-&gt;insert(<span class="php-var">$array</span>);
+</span><span id="121" class="l"><a class="l" href="#121">121: </a>
+</span><span id="122" class="l"><a class="l" href="#122">122: </a>            <span class="php-comment">/*
+</span></span><span id="123" class="l"><a class="l" href="#123">123: </a><span class="php-comment">             * Prosegue dopo inserimento
+</span></span><span id="124" class="l"><a class="l" href="#124">124: </a><span class="php-comment">             */</span>
+</span><span id="125" class="l"><a class="l" href="#125">125: </a>            <span class="php-keyword2">header</span>(<span class="php-quote">&quot;Location:index.php&quot;</span>);
+</span><span id="126" class="l"><a class="l" href="#126">126: </a>
+</span><span id="127" class="l"><a class="l" href="#127">127: </a>        }
+</span><span id="128" class="l"><a class="l" href="#128">128: </a>        <span class="xlang">?&gt;</span>
+</span><span id="129" class="l"><a class="l" href="#129">129: </a>    &lt;/body&gt;
+</span><span id="130" class="l"><a class="l" href="#130">130: </a>&lt;/html&gt;
+</span><span id="131" class="l"><a class="l" href="#131">131: </a>  <span class="xlang">&lt;?php</span>
+</span><span id="132" class="l"><a class="l" href="#132">132: </a><span class="php-keyword1">else</span>:
+</span><span id="133" class="l"><a class="l" href="#133">133: </a>    <span class="php-keyword2">header</span>(<span class="php-quote">&quot;location:login.php&quot;</span>);
+</span><span id="134" class="l"><a class="l" href="#134">134: </a></span><span class="php-keyword1">endif</span>;</code></pre>
+
+	<div id="footer">
+		UnknownPleasures API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

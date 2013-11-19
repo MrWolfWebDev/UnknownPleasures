@@ -108,6 +108,7 @@ class TableNews extends Database {
      */
     protected $selectQuery = "SELECT * FROM news";
     protected $selectByIDQuery = "SELECT * FROM news WHERE `ID` = :iD";
+    protected $selectByRowQuery = "SELECT * FROM news LIMIT :row, 1";
     protected $countQuery = "SELECT COUNT(*) FROM news";
     protected $insertQuery = "INSERT INTO `news` (`Data`, `Titolo`, `Testo`, `Foto`, `DataIns`) VALUES (:data, :titolo, :testo, :foto, :dataIns)";
     protected $updateQuery = "UPDATE news SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD";
@@ -124,7 +125,10 @@ class TableNews extends Database {
         "DataIns"
     );
 
-    // Fetch an array of News objects (defined in news.class.php)
+    /**
+     * Fetches an array of News objects (defined in news.class.php)
+     * @return type Class defined by $this->class
+     */
     public function fetchAll() {
         $this->query( $this->selectQuery );
         $this->execute();
@@ -132,6 +136,11 @@ class TableNews extends Database {
         return $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
     }
 
+    /**
+     * Fetches an array of $num News objects
+     * @param int $num  Number of News that must be fetched (default is 1)
+     * @return array<News>
+     */
     public function fetchSome( $num = 1 ) {
         $this->query( $this->selectQuery . "LIMIT 0, $num" );
 
@@ -163,6 +172,22 @@ class TableNews extends Database {
         return $results[0];
     }
 
+    public function fetchByRow( $row1 ) {
+        $row = intval( $row1 );
+        $this->query( $this->selectByRowQuery );
+
+        $this->bind( ':row', $row );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+        $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+        return $results[0];
+    }
+
     public function fetchCount() {
         $this->query( $this->countQuery );
         try {
@@ -172,7 +197,7 @@ class TableNews extends Database {
         catch ( PDOException $e ) {
             $this->error = $e->getMessage();
         }
-        $results = $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
+        $results = $this->stmt->fetch( PDO::FETCH_BOTH );
         return $results[0];
     }
 
@@ -259,8 +284,8 @@ class TableNews extends Database {
     /**
      * Update method.
      *
-     * @param type $obj     Must be a $this->class object
-     * @param type $ID      Must be int
+     * @param News $obj     The data of the updated record.
+     * @param int $ID      The ID of the record that must be updated.
      * @return boolean      Returns true if the query was successful, false otherwise
      */
     public function update( $obj, $ID ) {
@@ -299,7 +324,7 @@ class TableNews extends Database {
 }
 
 /**
- * TableSong class
+ * A class for brani table.
  */
 class TableSong extends TableNews {
 
@@ -309,6 +334,7 @@ class TableSong extends TableNews {
      */
     protected $selectQuery = "SELECT * FROM brani";
     protected $selectByIDQuery = "SELECT * FROM brani WHERE `ID` = :iD";
+    protected $selectBySearchQuery = "SELECT * FROM  `brani` WHERE  `Titolo` LIKE  '%:titolo%' OR  `Artista` LIKE  '%:artista%' OR  `Album` LIKE  '%:album%' OR  `Genere` LIKE  '%:genere%' OR  `Anno` LIKE  '%:anno%'";
     protected $insertQuery = "INSERT INTO `brani` (`Titolo`, `Artista`, `Album`, `Genere`, `Anno`, `ITunes`, `Pdf`, `DataIns`) VALUES (:titolo, :artista, :album, :genere, :anno, :iTunes, :pdf, :dataIns)";
     protected $updateQuery = "UPDATE data SET DataIns = :dataIns, Titolo = :titolo, Artista = :artista, Album = :album, Genere = :genere, Anno = :anno, Itunes = :iTunes, Pdf =:pdf WHERE ID = :iD";
     protected $deleteQuery = "DELETE FROM `brani` where `ID` = :iD";
@@ -327,6 +353,12 @@ class TableSong extends TableNews {
         "DataIns"
     );
 
+    /**
+     * Updates a record in the Brani table
+     * @param Brani $obj
+     * @param int $ID
+     * @return boolean
+     */
     public function update( $obj, $ID ) {
         $this->query( $this->updateQuery );
 
@@ -347,6 +379,30 @@ class TableSong extends TableNews {
             $this->error = $e->getMessage();
             return $this->error;
         }
+    }
+
+    /**
+     * Uses search parameter to look for records with corresponding strings.
+     * @param string $search
+     * @return array<Brani>
+     */
+    public function fetchBySearch( $search ) {
+        $this->query( $this->selectBySearchQuery );
+
+        $this->bind( ':titolo', $search );
+        $this->bind( ':artista', $search );
+        $this->bind( ':album', $search );
+        $this->bind( ':genere', $search );
+        $this->bind( ':anno', $search );
+        try {
+            $this->execute();
+        }
+        // Catch any errors
+        catch ( PDOException $e ) {
+            $this->error = $e->getMessage();
+        }
+
+        return $this->stmt->fetchAll( PDO::FETCH_CLASS, $this->class );
     }
 
 }
