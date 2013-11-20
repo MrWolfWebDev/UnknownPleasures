@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <?php
 include 'php/dbconnection.php';
 include 'php/db.class.php';
@@ -20,8 +15,7 @@ else {
     $news = $_GET['rec'];
 }
 
-$notizia= $newsDB->fetchByRow($news-1);
-
+$notizia = $newsDB->fetchByRow( $news - 1 );
 ?>
 <html>
     <head>
@@ -30,21 +24,22 @@ $notizia= $newsDB->fetchByRow($news-1);
     <body>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <div class="scroll_box">
-            
-            <div class="article_title"><?php 
-            echo $notizia->Titolo; ?></div>
+
+            <div class="article_title"><?php echo $notizia->Titolo; ?></div>
             <div class="article_content">
-                <div class="article_date"><?php 
-            $newDate = date("d.m.Y", strtotime($notizia->DataIns));
-            echo $newDate; ?></div>
-                <div class="article_image_box"><img class="article_image" src="<?php echo substr($notizia->Foto,3); ?>" /></div>
+                <div class="article_date"><?php
+                    $newDate = date( "d.m.Y", strtotime( $notizia->DataIns ) );
+                    echo $newDate;
+                    ?>
+                </div>
+                <div class="article_image_box"><img class="article_image" src="<?php echo substr( $notizia->Foto, 3 ); ?>" /></div>
                 <div class="horiz_bar"></div>
                 <div class="article_text">
                     <p>
                         <?php echo $notizia->Testo; ?>
                     </p>
                 </div>
-                
+
                 <div id="news_navigation">
                     <div class="news_navigation_cell">
                         <?php
