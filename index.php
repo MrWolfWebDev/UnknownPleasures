@@ -140,11 +140,7 @@ and open the template in the editor.
         <div id="contacts" style="display:none; background-color:#FFF; color:#000; width:400px; height:400px;">
             <a id="chiudi" style="cursor:pointer; position:absolute; right:5px;">x</a>
             <br />
-            <img src="images/up_logo.png" alt="Unknown Pleasure"/>
-            <br/>
-            <br />
-            <p><b>Unknown Pleasure</b></p>
-            <br/>
+            <img src="images/up_logo.png" alt="Unknown Pleasure" height="150px"/>
             <p align="left" style="margin-left:85px;"><b>P.I.:</b>    01569240094</p>
             <p align="left" style="margin-left:85px;"><b>A:</b>VIA L. GROSSO 28/6 - 17013<BR /> ALBISOLA SUPERIORE(SV)</p>
             <p align="left" style="margin-left:85px;"><b>T:</b>3479259983</p>
