@@ -118,7 +118,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-TableSong.html#326-408" title="Go to source code">php/db.class.php</a><br />
+		<b>Located at</b> <a href="source-class-TableSong.html#333-415" title="Go to source code">php/db.class.php</a><br />
 	</div>
 
 
@@ -136,7 +136,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-TableSong.html#356-382" title="Go to source code">update</a>( <span><code><a href="class-Brani.html">Brani</a></code> <var>$obj</var></span>, <span>integer <var>$ID</var></span> )</code>
+		<code><a href="source-class-TableSong.html#363-389" title="Go to source code">update</a>( <span><code><a href="class-Brani.html">Brani</a></code> <var>$obj</var></span>, <span>integer <var>$ID</var></span> )</code>
 
 		<div class="description short">
 			
@@ -182,7 +182,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchBySearch">#</a>
-		<code><a href="source-class-TableSong.html#384-406" title="Go to source code">fetchBySearch</a>( <span>string <var>$search</var></span> )</code>
+		<code><a href="source-class-TableSong.html#391-413" title="Go to source code">fetchBySearch</a>( <span>string <var>$search</var></span> )</code>
 
 		<div class="description short">
 			
@@ -271,9 +271,9 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#331-335" title="Go to source code"><var>$selectQuery</var></a>
+				<a href="source-class-TableSong.html#338-342" title="Go to source code"><var>$selectQuery</var></a>
 		</td>
-		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM brani&quot;</span></code></td>
+		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM brani ORDER BY `Titolo`&quot;</span></code></td>
 		<td class="description"><div>
 			<a href="#$selectQuery" class="anchor">#</a>
 
@@ -296,7 +296,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#336" title="Go to source code"><var>$selectByIDQuery</var></a>
+				<a href="source-class-TableSong.html#343" title="Go to source code"><var>$selectByIDQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM brani WHERE `ID` = :iD&quot;</span></code></td>
 		<td class="description"><div>
@@ -319,9 +319,9 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#337" title="Go to source code"><var>$selectBySearchQuery</var></a>
+				<a href="source-class-TableSong.html#344" title="Go to source code"><var>$selectBySearchQuery</var></a>
 		</td>
-		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM  `brani` WHERE  `Titolo` LIKE  '%:titolo%' OR  `Artista` LIKE  '%:artista%' OR  `Album` LIKE  '%:album%' OR  `Genere` LIKE  '%:genere%' OR  `Anno` LIKE  '%:anno%'&quot;</span></code></td>
+		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM  `brani` WHERE  `Titolo` LIKE  :titolo OR  `Artista` LIKE  :artista OR  `Album` LIKE  :album OR  `Genere` LIKE  :genere OR  `Anno` LIKE  :anno&quot;</span></code></td>
 		<td class="description"><div>
 			<a href="#$selectBySearchQuery" class="anchor">#</a>
 
@@ -342,7 +342,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#338" title="Go to source code"><var>$insertQuery</var></a>
+				<a href="source-class-TableSong.html#345" title="Go to source code"><var>$insertQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;INSERT INTO `brani` (`Titolo`, `Artista`, `Album`, `Genere`, `Anno`, `ITunes`, `Pdf`, `DataIns`) VALUES (:titolo, :artista, :album, :genere, :anno, :iTunes, :pdf, :dataIns)&quot;</span></code></td>
 		<td class="description"><div>
@@ -365,7 +365,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#339" title="Go to source code"><var>$updateQuery</var></a>
+				<a href="source-class-TableSong.html#346" title="Go to source code"><var>$updateQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;UPDATE data SET DataIns = :dataIns, Titolo = :titolo, Artista = :artista, Album = :album, Genere = :genere, Anno = :anno, Itunes = :iTunes, Pdf =:pdf WHERE ID = :iD&quot;</span></code></td>
 		<td class="description"><div>
@@ -388,7 +388,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#340" title="Go to source code"><var>$deleteQuery</var></a>
+				<a href="source-class-TableSong.html#347" title="Go to source code"><var>$deleteQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;DELETE FROM `brani` where `ID` = :iD&quot;</span></code></td>
 		<td class="description"><div>
@@ -411,7 +411,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#341" title="Go to source code"><var>$adminQuery</var></a>
+				<a href="source-class-TableSong.html#348" title="Go to source code"><var>$adminQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;SELECT `ID` FROM `admin` WHERE `User`=:user AND `Password`=SHA1(:pass)&quot;</span></code></td>
 		<td class="description"><div>
@@ -434,7 +434,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#343" title="Go to source code"><var>$class</var></a>
+				<a href="source-class-TableSong.html#350" title="Go to source code"><var>$class</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;Brani&quot;</span></code></td>
 		<td class="description"><div>
@@ -457,7 +457,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableSong.html#345-354" title="Go to source code"><var>$fields</var></a>
+				<a href="source-class-TableSong.html#352-361" title="Go to source code"><var>$fields</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
     <span class="php-quote">&quot;Titolo&quot;</span>,

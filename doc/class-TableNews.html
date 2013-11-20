@@ -77,6 +77,11 @@
 	<h1>Class TableNews</h1>
 
 
+	<div class="description">
+	
+<p>DBNews class (Extends Database class) (Using PDO) @</p>
+
+	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
@@ -110,7 +115,7 @@
 		
 		
 
-		<b>Located at</b> <a href="source-class-TableNews.html#103-324" title="Go to source code">php/db.class.php</a><br />
+		<b>Located at</b> <a href="source-class-TableNews.html#103-331" title="Go to source code">php/db.class.php</a><br />
 	</div>
 
 
@@ -121,14 +126,14 @@
 
 		<td class="attributes"><code>
 			 public 
-			type
+			mixed
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchAll">#</a>
-		<code><a href="source-class-TableNews.html#128-137" title="Go to source code">fetchAll</a>( )</code>
+		<code><a href="source-class-TableNews.html#129-138" title="Go to source code">fetchAll</a>( )</code>
 
 		<div class="description short">
 			
@@ -145,7 +150,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>type</code><br>Class defined by $this-&gt;class<br />
+					<code>mixed</code><br>$this-&gt;class Class defined by $this-&gt;class<br />
 				</div>
 
 
@@ -165,7 +170,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchSome">#</a>
-		<code><a href="source-class-TableNews.html#139-157" title="Go to source code">fetchSome</a>( <span>integer <var>$num</var> = <span class="php-num">1</span> </span> )</code>
+		<code><a href="source-class-TableNews.html#140-158" title="Go to source code">fetchSome</a>( <span>integer <var>$num</var> = <span class="php-num">1</span> </span> )</code>
 
 		<div class="description short">
 			
@@ -207,7 +212,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchByID">#</a>
-		<code><a href="source-class-TableNews.html#159-173" title="Go to source code">fetchByID</a>( <span>mixed <var>$ID1</var></span> )</code>
+		<code><a href="source-class-TableNews.html#160-174" title="Go to source code">fetchByID</a>( <span>mixed <var>$ID1</var></span> )</code>
 
 		<div class="description short">
 			
@@ -236,7 +241,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchByRow">#</a>
-		<code><a href="source-class-TableNews.html#175-189" title="Go to source code">fetchByRow</a>( <span>mixed <var>$row1</var></span> )</code>
+		<code><a href="source-class-TableNews.html#176-190" title="Go to source code">fetchByRow</a>( <span>mixed <var>$row1</var></span> )</code>
 
 		<div class="description short">
 			
@@ -265,7 +270,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fetchCount">#</a>
-		<code><a href="source-class-TableNews.html#191-202" title="Go to source code">fetchCount</a>( )</code>
+		<code><a href="source-class-TableNews.html#192-203" title="Go to source code">fetchCount</a>( )</code>
 
 		<div class="description short">
 			
@@ -294,7 +299,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_insert">#</a>
-		<code><a href="source-class-TableNews.html#204-230" title="Go to source code">insert</a>( <span>mixed <var>$obj</var></span> )</code>
+		<code><a href="source-class-TableNews.html#205-231" title="Go to source code">insert</a>( <span>mixed <var>$obj</var></span> )</code>
 
 		<div class="description short">
 			
@@ -323,7 +328,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-TableNews.html#232-263" title="Go to source code">delete</a>( <span>mixed <var>$ID1</var></span> )</code>
+		<code><a href="source-class-TableNews.html#233-264" title="Go to source code">delete</a>( <span>mixed <var>$ID1</var></span> )</code>
 
 		<div class="description short">
 			
@@ -345,24 +350,39 @@
 
 		<td class="attributes"><code>
 			 public 
-			
+			integer
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_admin">#</a>
-		<code><a href="source-class-TableNews.html#266-282" title="Go to source code">admin</a>( <span>mixed <var>$user</var></span>, <span>mixed <var>$pass</var></span> )</code>
+		<code><a href="source-class-TableNews.html#266-289" title="Go to source code">admin</a>( <span>string <var>$user</var></span>, <span>string <var>$pass</var></span> )</code>
 
 		<div class="description short">
 			
+<p>Check for (user,password) couple in Admins table.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Check for (user,password) couple in Admins table.</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$user</var></dt>
+					<dd><code>string</code><br>$user</dd>
+					<dt><var>$pass</var></dt>
+					<dd><code>string</code><br>$pass</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
 
 
 
@@ -381,7 +401,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_update">#</a>
-		<code><a href="source-class-TableNews.html#284-308" title="Go to source code">update</a>( <span><code><a href="class-News.html">News</a></code> <var>$obj</var></span>, <span>integer <var>$ID</var></span> )</code>
+		<code><a href="source-class-TableNews.html#291-315" title="Go to source code">update</a>( <span><code><a href="class-News.html">News</a></code> <var>$obj</var></span>, <span>integer <var>$ID</var></span> )</code>
 
 		<div class="description short">
 			
@@ -425,7 +445,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bindArray">#</a>
-		<code><a href="source-class-TableNews.html#312-316" title="Go to source code">bindArray</a>( <span>mixed <var>$obj</var></span> )</code>
+		<code><a href="source-class-TableNews.html#319-323" title="Go to source code">bindArray</a>( <span>mixed <var>$obj</var></span> )</code>
 
 		<div class="description short">
 			
@@ -454,7 +474,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bindObject">#</a>
-		<code><a href="source-class-TableNews.html#318-322" title="Go to source code">bindObject</a>( <span>mixed <var>$obj</var></span> )</code>
+		<code><a href="source-class-TableNews.html#325-329" title="Go to source code">bindObject</a>( <span>mixed <var>$obj</var></span> )</code>
 
 		<div class="description short">
 			
@@ -513,7 +533,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#105-109" title="Go to source code"><var>$selectQuery</var></a>
+				<a href="source-class-TableNews.html#110" title="Go to source code"><var>$selectQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM news&quot;</span></code></td>
 		<td class="description"><div>
@@ -525,8 +545,6 @@
 
 			<div class="description detailed hidden">
 				
-<p>CRUD Methods</p>
-
 
 			</div>
 		</div></td>
@@ -538,7 +556,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#110" title="Go to source code"><var>$selectByIDQuery</var></a>
+				<a href="source-class-TableNews.html#111" title="Go to source code"><var>$selectByIDQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM news WHERE `ID` = :iD&quot;</span></code></td>
 		<td class="description"><div>
@@ -561,7 +579,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#111" title="Go to source code"><var>$selectByRowQuery</var></a>
+				<a href="source-class-TableNews.html#112" title="Go to source code"><var>$selectByRowQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;SELECT * FROM news LIMIT :row, 1&quot;</span></code></td>
 		<td class="description"><div>
@@ -584,7 +602,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#112" title="Go to source code"><var>$countQuery</var></a>
+				<a href="source-class-TableNews.html#113" title="Go to source code"><var>$countQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;SELECT COUNT(*) FROM news&quot;</span></code></td>
 		<td class="description"><div>
@@ -607,7 +625,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#113" title="Go to source code"><var>$insertQuery</var></a>
+				<a href="source-class-TableNews.html#114" title="Go to source code"><var>$insertQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;INSERT INTO `news` (`Data`, `Titolo`, `Testo`, `Foto`, `DataIns`) VALUES (:data, :titolo, :testo, :foto, :dataIns)&quot;</span></code></td>
 		<td class="description"><div>
@@ -630,7 +648,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#114" title="Go to source code"><var>$updateQuery</var></a>
+				<a href="source-class-TableNews.html#115" title="Go to source code"><var>$updateQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;UPDATE news SET Data = :data, Titolo = :titolo, Testo = :testo, Foto = :foto, DataIns = :dataIns WHERE ID = :iD&quot;</span></code></td>
 		<td class="description"><div>
@@ -653,7 +671,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#115" title="Go to source code"><var>$deleteQuery</var></a>
+				<a href="source-class-TableNews.html#116" title="Go to source code"><var>$deleteQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;DELETE FROM `news` where `ID` = :iD&quot;</span></code></td>
 		<td class="description"><div>
@@ -676,7 +694,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#116" title="Go to source code"><var>$adminQuery</var></a>
+				<a href="source-class-TableNews.html#117" title="Go to source code"><var>$adminQuery</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;SELECT `ID` FROM `admin` WHERE `User`=:user AND `Password`=SHA1(:pass)&quot;</span></code></td>
 		<td class="description"><div>
@@ -699,7 +717,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#118" title="Go to source code"><var>$class</var></a>
+				<a href="source-class-TableNews.html#119" title="Go to source code"><var>$class</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;News&quot;</span></code></td>
 		<td class="description"><div>
@@ -722,7 +740,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-TableNews.html#120-126" title="Go to source code"><var>$fields</var></a>
+				<a href="source-class-TableNews.html#121-127" title="Go to source code"><var>$fields</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
     <span class="php-quote">&quot;Data&quot;</span>,

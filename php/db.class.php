@@ -2,7 +2,9 @@
 
 include 'news.class.php';
 
-// Database class (Using PDO)
+/**
+ *  Database class (Using PDO)
+ */
 class Database {
 
     protected $host = DB_HOST;
@@ -98,14 +100,13 @@ class Database {
 
 }
 
-// DBNews class (Extends Database class) (Using PDO)
-
+/**
+ * DBNews class (Extends Database class) (Using PDO)
+ * @
+ * @todo Aggiungere i costruttori
+ */
 class TableNews extends Database {
 
-    /**
-     *
-     * CRUD Methods
-     */
     protected $selectQuery = "SELECT * FROM news";
     protected $selectByIDQuery = "SELECT * FROM news WHERE `ID` = :iD";
     protected $selectByRowQuery = "SELECT * FROM news LIMIT :row, 1";
@@ -127,7 +128,7 @@ class TableNews extends Database {
 
     /**
      * Fetches an array of News objects (defined in news.class.php)
-     * @return type Class defined by $this->class
+     * @return $this->class Class defined by $this->class
      */
     public function fetchAll() {
         $this->query( $this->selectQuery );
@@ -262,7 +263,13 @@ class TableNews extends Database {
         }
     }
 
-    //
+    /**
+     * Check for (user,password) couple in Admins table.
+     * @todo Move it in another class.
+     * @param string $user
+     * @param string $pass
+     * @return int
+     */
     public function admin( $user, $pass ) {
         $this->query( $this->adminQuery );
 
