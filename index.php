@@ -104,7 +104,7 @@ and open the template in the editor.
         <div id="footer">
             <div class="footer_right_area">
                 <div class="footer_textarea">
-                    <span class="footer_text">contatti</span>
+                    <a><img class="link_logo" alt="Youtube_logo" src="images/links/contatti.png" style="height:30px !important; width: auto !important;"/></a>
                 </div>
                 <div class="footer_link">
                     <a href="mailto:prova@prova.it"><img class="link_logo" alt="mail_logo" src="images/links/mail.png" /></a>
@@ -116,7 +116,7 @@ and open the template in the editor.
                     <a href="http://twitter.com" target="_blank"><img class="link_logo" alt="twitter_logo" src="images/links/twitter.png" /></a>
                 </div>
                 <div class="footer_link">
-                    <a href="http://youtube.com" target="_blank"><img class="link_logo" alt="Youtube_logo" src="images/links/youtube.png" /></a>
+                    <a href="http://youtube.com" target="_blank"><img class="link_logo" alt="Youtube_logo" src="images/links/youtube.png" style="width: 35px !important;"/></a>
                 </div>
             </div>
         </div>
